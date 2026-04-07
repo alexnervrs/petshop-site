@@ -1,68 +1,220 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Serviços - PetShop Amigo Fiel</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços - PetShop Amigo Fiel</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<center>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar-principal">
+    <div class="container">
 
-<header>
-<h1>PetShop Amigo Fiel</h1>
+      <a class="navbar-brand" href="index.html">
+        🐾 Amigo Fiel
+      </a>
 
-<nav>
-<a href="index.html">Início</a> |
-<a href="produtos.html">Produtos</a> |
-<a href="servicos.html">Serviços</a> |
-<a href="contato.html">Contato</a>
-</nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<hr>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
 
-</header>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="produtos.html">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom ativo" href="servicos.html">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="contato.html">Contato</a></li>
 
-<main>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link btn-destaque" href="cadastro.html">
+              <i class="bi bi-person-plus-fill"></i> Cadastro
+            </a>
+          </li>
 
-<h2>Serviços do PetShop</h2>
+          <li class="nav-item ms-lg-1">
+            <a class="nav-link btn-destaque btn-verde" href="agendamento.html">
+              <i class="bi bi-calendar-check-fill"></i> Agendar
+            </a>
+          </li>
 
-<h3>Banho</h3>
-<p>Banho completo para cães e gatos.</p>
-<p>Valor: R$ 50,00</p>
-<p>Tele-busca: Sim</p>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<h3>Tosa</h3>
-<p>Tosa higiênica e estética para cães.</p>
-<p>Valor: R$ 60,00</p>
-<p>Tele-busca: Sim</p>
+  <!-- Cabeçalho -->
+  <div class="cabecalho-pagina" style="margin-top: 80px;">
+    <div class="container text-center">
+      <h1><i class="bi bi-scissors me-2"></i>Serviços</h1>
+      <p>Banho e tosa para cães e gatos</p>
+    </div>
+  </div>
 
-<h3>Consulta Veterinária</h3>
-<p>Consulta veterinária para avaliação da saúde do pet.</p>
-<p>Valor: R$ 120,00</p>
-<p>Tele-busca: Não</p>
+  <main class="container py-5" id="conteudo">
 
-</main>
+    <!-- Intro -->
+    <div class="text-center mb-5">
+      <p class="lead">
+        Trabalhamos com banho e tosa. Pode trazer o pet ou solicitar busca em casa.
+      </p>
+    </div>
 
-<footer>
+    <!-- Banho -->
+    <section class="mb-5">
+      <div class="row g-4 align-items-center">
 
-<hr>
+        <div class="col-lg-6 d-flex">
+          <div class="card-servico-detalhe w-100">
 
-<p><b>PetShop Amigo Fiel</b></p>
+            <div class="card-servico-detalhe-header">
+              <span class="srv-icone-grande">🛁</span>
+              <div>
+                <h2>Banho</h2>
+                <p class="preco-grande">A partir de R$ 50,00</p>
+              </div>
+            </div>
 
-<p>Telefone: (85) 99999-9999</p>
+            <p>Banho completo com produtos para pets.</p>
 
-<p>Email: contato@petshop.com</p>
+            <ul class="lista-detalhes">
+              <li>Shampoo e condicionador</li>
+              <li>Secagem</li>
+              <li>Perfume</li>
+              <li>Limpeza básica</li>
+              <li>Tele-busca</li>
+            </ul>
 
-<p>Site desenvolvido por Alex</p>
+            <a href="agendamento.html" class="btn-principal mt-3 d-inline-block">
+              <i class="bi bi-calendar-check-fill me-2"></i>Agendar
+            </a>
 
-<p>© 2026</p>
+          </div>
+        </div>
 
-</footer>
+        <div class="col-lg-6 text-center">
+          <img
+            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=540&q=80"
+            alt="Cachorro após banho"
+            class="img-fluid rounded-4 shadow"
+            width="480"
+          >
+        </div>
 
-</center>
+      </div>
+    </section>
+
+    <hr class="my-5 divisor">
+
+    <!-- Tosa -->
+    <section class="mb-5">
+      <div class="row g-4 align-items-center flex-lg-row-reverse">
+
+        <div class="col-lg-6 d-flex">
+          <div class="card-servico-detalhe card-servico-detalhe--tosa w-100">
+
+            <div class="card-servico-detalhe-header">
+              <span class="srv-icone-grande">✂️</span>
+              <div>
+                <h2>Tosa</h2>
+                <p class="preco-grande">A partir de R$ 60,00</p>
+              </div>
+            </div>
+
+            <p>Tosa simples ou estética.</p>
+
+            <ul class="lista-detalhes">
+              <li>Tosa completa</li>
+              <li>Corte de unhas</li>
+              <li>Acabamento</li>
+              <li>Limpeza</li>
+              <li>Tele-busca</li>
+            </ul>
+
+            <a href="agendamento.html" class="btn-principal btn-tosa mt-3 d-inline-block">
+              <i class="bi bi-calendar-check-fill me-2"></i>Agendar
+            </a>
+
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <img
+            src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=540&q=80"
+            alt="Cachorro com tosa"
+            class="img-fluid rounded-4 shadow"
+            width="480"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="my-5 divisor">
+
+    <!-- Como funciona -->
+    <section>
+      <div class="text-center mb-4">
+        <h2>Como funciona</h2>
+      </div>
+
+      <div class="row g-4 text-center">
+
+        <div class="col-md-4 d-flex">
+          <div class="passo-card w-100">
+            <div class="passo-num">1</div>
+            <h4>Cadastro</h4>
+            <p>Informe seus dados e do pet.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 d-flex">
+          <div class="passo-card w-100">
+            <div class="passo-num">2</div>
+            <h4>Escolha</h4>
+            <p>Selecione o serviço e horário.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 d-flex">
+          <div class="passo-card w-100">
+            <div class="passo-num">3</div>
+            <h4>Atendimento</h4>
+            <p>Buscamos ou você traz o pet.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="agendamento.html" class="btn-principal">
+          <i class="bi bi-calendar-check-fill me-2"></i>Agendar
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="rodape py-4">
+    <div class="container text-center">
+      <p><strong>PetShop Amigo Fiel</strong> — Fortaleza, CE</p>
+      <p>(85) 99999-9999 | contato@petshopamigofiel.com</p>
+      <p>Desenvolvido por Alex — <span id="ano-atual"></span></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 
 </body>
-
 </html>

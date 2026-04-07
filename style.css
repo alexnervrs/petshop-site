@@ -1,0 +1,730 @@
+/* ====================================================
+   PetShop Amigo Fiel — style.css
+   Fase 2: CSS + Bootstrap + Acessibilidade
+   Autor: Alex Barroso Bezerra Lima
+   ==================================================== */
+
+/* ------ VARIÁVEIS DE COR E FONTE ------ */
+:root {
+  --verde:        #2d8c5e;     /* verde principal — identidade do petshop */
+  --verde-claro:  #3aab72;
+  --verde-fundo:  #edf7f2;
+  --laranja:      #e07b39;     /* acento quente */
+  --laranja-claro:#fdf0e6;
+  --escuro:       #1e2b24;
+  --texto:        #3d4a42;
+  --cinza-fundo:  #f4f7f5;
+  --branco:       #ffffff;
+  --raio:         14px;
+  --sombra:       0 4px 20px rgba(0,0,0,0.08);
+  --fonte-titulo: 'Poppins', sans-serif;
+  --fonte-corpo:  'Nunito', sans-serif;
+}
+
+/* ------ BASE ------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--texto);
+  background: var(--branco);
+  margin: 0;
+}
+
+/* Foco visível — acessibilidade para teclado */
+:focus-visible {
+  outline: 3px solid var(--verde);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ------ NAVBAR ------ */
+#navbar-principal {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: box-shadow 0.3s;
+}
+
+.navbar-brand {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--verde) !important;
+  letter-spacing: -0.3px;
+}
+.brand-icone { font-size: 1.3rem; }
+
+.nav-link-custom {
+  font-weight: 600;
+  color: var(--escuro) !important;
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem !important;
+  transition: color 0.2s, background 0.2s;
+  font-size: 0.97rem;
+}
+.nav-link-custom:hover,
+.nav-link-custom.ativo {
+  color: var(--verde) !important;
+  background: var(--verde-fundo);
+}
+
+/* Botões do menu */
+.btn-destaque {
+  font-weight: 700;
+  border: 2px solid var(--verde);
+  color: var(--verde) !important;
+  border-radius: 8px;
+  padding: 0.38rem 0.9rem !important;
+  font-size: 0.93rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-destaque:hover,
+.btn-destaque.ativo {
+  background: var(--verde);
+  color: var(--branco) !important;
+}
+.btn-verde {
+  background: var(--verde) !important;
+  color: var(--branco) !important;
+  border-color: var(--verde) !important;
+}
+.btn-verde:hover { opacity: 0.88; }
+
+/* ------ HERO ------ */
+.secao-hero {
+  background: linear-gradient(150deg, var(--verde-fundo) 0%, #d6eee4 60%, #fffaf6 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 76px;
+  overflow: hidden;
+  position: relative;
+}
+
+.texto-hero { padding: 3rem 0; }
+
+/* Relógio hero */
+.relogio-hero {
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--verde);
+  margin-bottom: 1rem;
+  min-height: 1.4rem;
+}
+
+.titulo-hero {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 700;
+  color: var(--escuro);
+  line-height: 1.12;
+  margin-bottom: 1rem;
+}
+.destaque-verde { color: var(--verde); }
+
+.subtitulo-hero {
+  font-size: 1.12rem;
+  color: #5a7060;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+/* Badge de funcionamento */
+.funcionamento-badge {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  background: #edf7f2;
+  color: var(--verde);
+}
+
+/* Imagem hero */
+.imagem-hero-wrap {
+  position: relative;
+}
+.imagem-hero-wrap::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: var(--verde);
+  opacity: 0.07;
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  top: 16px;
+  left: 16px;
+  z-index: 0;
+}
+.imagem-hero {
+  position: relative;
+  z-index: 1;
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  box-shadow: 0 12px 40px rgba(45,140,94,0.18);
+  max-width: 420px;
+  width: 100%;
+  object-fit: cover;
+  /* Pequena animação suave de flutuação */
+  animation: flutuar 4s ease-in-out infinite alternate;
+}
+@keyframes flutuar {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-10px); }
+}
+
+/* ------ FAIXA PROMO ------ */
+.faixa-promo {
+  background: #2d8c5e;
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.2px;
+}
+
+/* ------ BOTÕES PRINCIPAIS ------ */
+.btn-principal {
+  display: inline-block;
+  background: var(--verde);
+  color: var(--branco);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(45,140,94,0.3);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.btn-principal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45,140,94,0.38);
+  color: var(--branco);
+  opacity: 0.93;
+}
+.btn-tosa {
+  background: var(--laranja);
+  box-shadow: 0 4px 14px rgba(224,123,57,0.28);
+}
+.btn-tosa:hover { box-shadow: 0 6px 20px rgba(224,123,57,0.38); }
+
+.btn-secundario {
+  display: inline-block;
+  background: transparent;
+  color: var(--verde);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid var(--verde);
+  border-radius: 10px;
+  padding: 0.65rem 1.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-secundario:hover {
+  background: var(--verde);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+
+/* ------ SEÇÕES ------ */
+.secao { background: var(--branco); }
+.secao-cinza { background: var(--cinza-fundo); }
+
+.etiqueta-secao {
+  display: inline-block;
+  background: var(--verde-fundo);
+  color: var(--verde);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border-radius: 50px;
+  padding: 0.2rem 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.titulo-secao {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--escuro);
+  line-height: 1.2;
+}
+
+/* ------ CARDS DE SERVIÇO (index) ------ */
+.card-servico {
+  background: var(--branco);
+  border-radius: var(--raio);
+  padding: 2.2rem 1.8rem;
+  box-shadow: var(--sombra);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 5px solid var(--verde);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(45,140,94,0.14);
+}
+.card-servico--tosa { border-top-color: var(--laranja); }
+.card-servico--tosa .lista-servico i { color: var(--laranja); }
+
+.card-servico-icone { font-size: 2.8rem; margin-bottom: 0.8rem; }
+
+.card-servico h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--escuro);
+  margin-bottom: 0.5rem;
+}
+
+.preco {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+.lista-servico {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+.lista-servico li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.lista-servico i { color: var(--verde); }
+
+.btn-card {
+  align-self: flex-start;
+}
+
+/* ------ CARROSSEL ------ */
+.carrossel-img {
+  height: 460px;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 768px) { .carrossel-img { height: 240px; } }
+
+.legenda-carrossel {
+  background: rgba(0,0,0,0.42);
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  backdrop-filter: blur(4px);
+}
+.legenda-carrossel h5 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+/* ------ SOBRE (index) ------ */
+.sobre-img-bloco { position: relative; }
+
+.numero-card {
+  background: var(--verde-fundo);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.numero-num {
+  font-family: var(--fonte-titulo);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--verde);
+  line-height: 1;
+}
+.numero-label { font-size: 0.82rem; color: #6b7c74; }
+
+/* ------ CARDS DE PRODUTO (produtos.html) ------ */
+.titulo-categoria {
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--escuro);
+  border-bottom: 3px solid var(--verde-fundo);
+  padding-bottom: 0.5rem;
+}
+
+.card-produto {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card-produto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.card-produto-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+.card-produto-corpo {
+  padding: 1.2rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-produto-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--escuro);
+  margin-bottom: 0.4rem;
+}
+.preco-produto {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--verde);
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* ------ SERVIÇOS DETALHE (servicos.html) ------ */
+.card-servico-detalhe {
+  background: var(--verde-fundo);
+  border-radius: var(--raio);
+  padding: 2rem 1.8rem;
+  height: 100%;
+  border-left: 5px solid var(--verde);
+}
+.card-servico-detalhe--tosa {
+  background: var(--laranja-claro);
+  border-left-color: var(--laranja);
+}
+.card-servico-detalhe-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.srv-icone-grande { font-size: 2.8rem; }
+.card-servico-detalhe h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--escuro);
+  margin-bottom: 0;
+}
+.preco-grande {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--verde);
+  margin-bottom: 0;
+}
+.card-servico-detalhe--tosa .preco-grande { color: var(--laranja); }
+
+.lista-detalhes {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 1rem;
+}
+.lista-detalhes li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.lista-detalhes i { color: var(--verde); font-size: 1.05rem; }
+.card-servico-detalhe--tosa .lista-detalhes i { color: var(--laranja); }
+
+/* Passos de agendamento */
+.passo-card {
+  background: var(--branco);
+  border-radius: var(--raio);
+  padding: 1.8rem 1.4rem;
+  box-shadow: var(--sombra);
+  height: 100%;
+}
+.passo-num {
+  width: 52px;
+  height: 52px;
+  background: var(--verde);
+  color: var(--branco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0 auto 1rem;
+}
+.passo-card h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--escuro);
+  margin-bottom: 0.4rem;
+}
+
+.divisor { border-color: #d8e8e0; }
+
+/* ------ CONTATO ------ */
+.info-contato-lista { display: flex; flex-direction: column; gap: 1.5rem; }
+.info-contato-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.info-icone {
+  width: 42px;
+  height: 42px;
+  background: var(--verde-fundo);
+  color: var(--verde);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.card-acao-rapida {
+  background: var(--verde-fundo);
+  border-radius: var(--raio);
+  padding: 2rem 1.8rem;
+  box-shadow: var(--sombra);
+}
+.card-acao-rapida h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--escuro);
+  margin-bottom: 0.5rem;
+}
+.card-acao-rapida p { font-size: 0.95rem; color: #5a7060; }
+.card-acao-rapida .btn-principal,
+.card-acao-rapida .btn-secundario {
+  display: block;
+  text-align: center;
+}
+
+/* ------ FOOTER ------ */
+.rodape {
+  background: var(--escuro);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.92rem;
+}
+.rodape a { color: #7dd9ab; text-decoration: none; }
+.rodape a:hover { text-decoration: underline; }
+.rodape-copy { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+/* ------ CABEÇALHO DE PÁGINAS INTERNAS ------ */
+.cabecalho-pagina {
+  background: linear-gradient(135deg, var(--verde) 0%, #1e6b47 100%);
+  color: var(--branco);
+  padding: 6.5rem 1rem 2.5rem;
+}
+.cabecalho-verde { background: linear-gradient(135deg, #1e6b47 0%, var(--verde) 100%); }
+.cabecalho-pagina h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+.cabecalho-pagina p { opacity: 0.88; font-size: 1.05rem; margin-bottom: 0; }
+
+/* ------ FORMULÁRIOS ------ */
+.form-envoltorio {
+  background: var(--branco);
+  border-radius: var(--raio);
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+  box-shadow: var(--sombra);
+  max-width: 860px;
+}
+
+.bloco-form {
+  border: 1.5px solid #daeee4;
+  border-radius: var(--raio);
+  padding: 1.8rem 1.4rem;
+  background: #fafcfb;
+}
+
+.titulo-bloco-form {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--verde);
+  margin-bottom: 1.2rem;
+  padding: 0;
+  border: none;
+  width: 100%;
+}
+
+.form-control, .form-select {
+  border: 1.5px solid #c8ddd4;
+  border-radius: 8px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.96rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(45,140,94,0.15);
+}
+.form-label {
+  font-weight: 700;
+  color: var(--escuro);
+  font-size: 0.94rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Asterisco de obrigatório */
+.campo-obrigatorio { color: #c0392b; }
+
+/* ------ BARRA DE RELÓGIO (agendamento) ------ */
+.barra-relogio {
+  background: var(--verde-fundo);
+  border-radius: 10px;
+  padding: 0.65rem 1.2rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--escuro);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ------ CARDS DE SELEÇÃO (agendamento) ------ */
+/* Card de serviço selecionável */
+.card-selecao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  border: 2px solid #c8ddd4;
+  border-radius: var(--raio);
+  padding: 1.4rem 1rem;
+  cursor: pointer;
+  background: var(--branco);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  height: 100%;
+  min-height: 130px;
+}
+.card-selecao:hover {
+  border-color: var(--verde);
+  background: var(--verde-fundo);
+  transform: translateY(-2px);
+}
+.card-selecao.selecionado {
+  border-color: var(--verde);
+  background: var(--verde-fundo);
+  box-shadow: 0 0 0 3px rgba(45,140,94,0.15);
+}
+.card-sel-icone { font-size: 2.2rem; }
+.card-selecao strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  color: var(--escuro);
+}
+.card-selecao small { color: #6b7c74; font-size: 0.82rem; }
+.preco-card {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--verde);
+  font-size: 0.9rem;
+}
+
+/* Card de método */
+.card-metodo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid #c8ddd4;
+  border-radius: var(--raio);
+  padding: 1.1rem 1.3rem;
+  cursor: pointer;
+  background: var(--branco);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  height: 100%;
+}
+.card-metodo:hover {
+  border-color: var(--verde);
+  background: var(--verde-fundo);
+  transform: translateY(-2px);
+}
+.card-metodo.selecionado {
+  border-color: var(--verde);
+  background: var(--verde-fundo);
+  box-shadow: 0 0 0 3px rgba(45,140,94,0.15);
+}
+.met-icone {
+  font-size: 1.9rem;
+  color: var(--verde);
+  min-width: 42px;
+  text-align: center;
+}
+.card-metodo strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  color: var(--escuro);
+}
+
+/* Inputs de radio dentro de cards (ocultos visualmente) */
+.card-selecao input[type="radio"],
+.card-metodo input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ------ ALERTA DE SUCESSO ------ */
+.alerta-sucesso {
+  background: #d4edda;
+  color: #1a5c30;
+  border: 1.5px solid #b2dfca;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.alerta-sucesso a { color: var(--verde); font-weight: 700; }
+
+/* ------ ACESSIBILIDADE EXTRA ------ */
+/* Tamanho mínimo clicável para checkboxes e radios */
+.form-check-input { width: 1.15em; height: 1.15em; cursor: pointer; }
+.form-check-label { cursor: pointer; }
+
+/* Contraste alto para labels */
+.form-label { color: #1a2e22; }
+
+/* ------ RESPONSIVIDADE ------ */
+@media (max-width: 576px) {
+  .bloco-form { padding: 1.2rem 1rem; }
+  .form-envoltorio { padding: 1.3rem 1rem; }
+  .card-selecao, .card-metodo { min-height: auto; }
+}
