@@ -2,6 +2,8 @@
 
 Site institucional responsivo para um petshop, desenvolvido como projeto acadêmico no curso de Análise e Desenvolvimento de Sistemas da PUCRS.
 
+**Site publicado:** https://alexnervrs.github.io/petshop-site/
+
 ## Páginas
 
 | Página | Conteúdo |
@@ -28,7 +30,7 @@ Site institucional responsivo para um petshop, desenvolvido como projeto acadêm
 
 ## Como abrir
 
-Clone o repositório e abra o arquivo `index.html` no navegador:
+Acesse a versão publicada no link acima ou clone o repositório e abra o arquivo `index.html` no navegador:
 
 ```bash
 git clone https://github.com/alexnervrs/petshop-site.git
