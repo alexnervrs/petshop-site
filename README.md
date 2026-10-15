@@ -21,12 +21,17 @@ Site institucional responsivo para um petshop, desenvolvido como projeto acadêm
 * CSS3
 * Bootstrap 5.3 e Bootstrap Icons
 * Google Fonts (Nunito e Poppins)
+* JavaScript
 
 ## Destaques
 
 * Layout responsivo com navbar fixa e menu colapsável no celular
 * Formulários com campos obrigatórios e atributos de acessibilidade (`aria-label`, `aria-required`)
 * Navegação entre todas as páginas pelo menu
+* Validação dos formulários em JavaScript, incluindo verificação dos dígitos do CPF e bloqueio de agendamento em domingos ou datas passadas
+* Máscaras automáticas de CPF, telefone e CEP
+* Relógio e indicador de "aberto/fechado" conforme o horário de funcionamento
+* Resumo do agendamento exibido após a confirmação
 
 ## Como abrir
 
